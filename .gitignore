@@ -12,10 +12,17 @@ ProjectSettings/
 **/Builds/Il2CppOutputProject
 **/Packages/
 **/Logs/
-Assets/
 **/UserSettings/
 **/Managed
 **/Data
+!**/*.cs
+**/Assets/MixedRealityToolkit*
+**/Assets/MRTK
+**/Assets/**/*.meta
+**/Assets/XR
+**/Assets/**/*.pfx
+**/Builds/**/Assets
+**/Assets/Materials/*
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
