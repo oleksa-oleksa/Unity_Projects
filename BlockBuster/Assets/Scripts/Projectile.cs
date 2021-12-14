@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // Start is called before the first frame update
 
     public float speed;
     public int damage;
@@ -29,6 +28,7 @@ public class Projectile : MonoBehaviour
         // A ray is an infinite line starting at origin and going in some direction.
         this.shootDirection = shootRay.direction;
         this.transform.position = shootRay.origin;
+        rotateInShootDirection();
     }
 
     // 3
@@ -40,5 +40,12 @@ public class Projectile : MonoBehaviour
             enemy.TakeDamage(damage);
         }
         Destroy(this.gameObject);
+    }
+
+    void rotateInShootDirection()
+    {
+        // RotateTowards is very similar to MoveTowards, but it treats vectors as directions instead of positions.
+        Vector3 newRotation = Vector3.RotateTowards(transform.forward, shootDirection, 0.01f, 0.0f);
+        transform.rotation = Quaternion.LookRotation(newRotation);
     }
 }
