@@ -33,13 +33,30 @@ public class NewBehaviourScript : MonoBehaviour
         {
             var key = inputKeys[i];
 
-            // 2
+            // Returns true while the user holds down the key identified by name.
             if (Input.GetKey(key))
             {
-                // 3
+                // Time.deltaTime is the interval in seconds from the last frame to the current one
+                // The general rule is when you perform an action every (fixed) frame, you need to multiply by Time.deltaTime
                 Vector3 movement = directionsForKeys[i] * acceleration * Time.deltaTime;
+                
+                movePlayer(movement);
             }
         }
 
+    }
+
+    // The above method applies force to the ridigbody, causing it to move.
+    void movePlayer(Vector3 movement)
+    {
+        if (rigidBody.velocity.magnitude * acceleration > maxSpeed)
+        {
+            // force in the opposite direction effectively limits the maximum speed.
+            rigidBody.AddForce(movement * -1);
+        }
+        else
+        {
+            rigidBody.AddForce(movement);
+        }
     }
 }
