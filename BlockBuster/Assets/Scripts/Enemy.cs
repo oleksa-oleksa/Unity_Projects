@@ -16,9 +16,28 @@ public class Enemy : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (targetTransform != null)
+        {
+            // Calculate a position between the points specified by current and target,
+            // moving no farther than the distance specified by maxDistanceDelta.
+            this.transform.position = Vector3.MoveTowards(this.transform.position, targetTransform.transform.position, Time.deltaTime * moveSpeed);
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void Attack(Player player)
+    {
+        player.health -= this.damage;
+        Destroy(this.gameObject);
     }
 }
