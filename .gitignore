@@ -23,7 +23,7 @@ ProjectSettings/
 **/Assets/**/*.pfx
 **/Builds/**/Assets
 **/Assets/Materials/*
-
+**/TextMesh*
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
