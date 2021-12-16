@@ -13,10 +13,11 @@ public class UserInfoText : MonoBehaviour
     private UserTransform userTransform;
 
     // time variables for delay
-    private float waitTime = 2.0f;
+    private float waitTime = 1.0f;
     private float timer = 0.0f;
     
     private int counter = 0;
+    private Vector3 hp = new Vector3(14.0f, 19.0f, 76.0f);
 
 
     void Start()
@@ -37,7 +38,7 @@ public class UserInfoText : MonoBehaviour
             //ShowUserTransformData(userTransform);
             // textDisplay.GetComponent<Text>().text = "Position!" + counter;
             textmeshPro = GetComponent<TextMeshPro>();
-            textmeshPro.SetText("Position: {0}", counter);
+            textmeshPro.SetText("X: {0:3}", hp.x);
 
             // reset timer
             timer = 0.0f;
