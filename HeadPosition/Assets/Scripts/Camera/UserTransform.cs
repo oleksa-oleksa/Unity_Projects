@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UserPosition : MonoBehaviour
+public class UserTransform : MonoBehaviour
 {
 
     // This script obtains data from Main Camera in the Scene
