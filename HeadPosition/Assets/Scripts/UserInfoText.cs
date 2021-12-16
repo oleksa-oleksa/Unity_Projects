@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class UserInfoText : MonoBehaviour
 {
     public GameObject textDisplay;
+    public TextMeshPro textmeshPro;
 
     public GameObject detectedTransform;
     // script to access
@@ -14,7 +15,8 @@ public class UserInfoText : MonoBehaviour
     // time variables for delay
     private float waitTime = 2.0f;
     private float timer = 0.0f;
-    private float value = 10.0f;
+    
+    private int counter = 0;
 
 
     void Start()
@@ -26,23 +28,27 @@ public class UserInfoText : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        counter++;
 
         // Check if we have reached beyond 2 seconds.
         if (timer > waitTime)
         {
             // display user transform information on text dislay
             //ShowUserTransformData(userTransform);
-            textDisplay.GetComponent<Text>().text = "Position!";
+            // textDisplay.GetComponent<Text>().text = "Position!" + counter;
+            textmeshPro = GetComponent<TextMeshPro>();
+            textmeshPro.SetText("Position: {0}", counter);
 
             // reset timer
             timer = 0.0f;
 
         }
     }
-
+/*
     void ShowUserTransformData(UserTransform userTransform)
     {
         textDisplay.GetComponent<Text>().text = "Position: " + userTransform.headposition +
              "Orientation: " + userTransform.orientation;
     }
+*/
 }
