@@ -8,48 +8,45 @@ public class UserInfoText : MonoBehaviour
     public GameObject textDisplay;
     public TextMeshPro textmeshPro;
 
-    public GameObject detectedTransform;
-    // script to access
-    private UserTransform userTransform;
+    // Camera 
+    public Vector3 headposition;
+    public Quaternion orientation;
 
     // time variables for delay
     private float waitTime = 1.0f;
     private float timer = 0.0f;
     
-    private int counter = 0;
-    private Vector3 hp = new Vector3(14.0f, 19.0f, 76.0f);
+    // test
+    // private Vector3 hp = new Vector3(14.0f, 19.0f, 76.0f);
 
 
     void Start()
     {
-        userTransform = detectedTransform.GetComponent<UserTransform>();
+
     }
 
   
     void Update()
     {
         timer += Time.deltaTime;
-        counter++;
+        headposition = Camera.main.transform.position;
+        orientation = Camera.main.transform.rotation;
 
         // Check if we have reached beyond 2 seconds.
         if (timer > waitTime)
         {
-            // display user transform information on text dislay
-            //ShowUserTransformData(userTransform);
-            // textDisplay.GetComponent<Text>().text = "Position!" + counter;
+   
             textmeshPro = GetComponent<TextMeshPro>();
-            textmeshPro.SetText("X: {0:3}", hp.x);
+
+            textmeshPro.SetText("Position x: {0:3}, y: {1:3}, z: {2:3}; \r\n " +
+                "Rotation w: {3:3}, x: {4:3}, y: {5:3}, z: {6:3}", 
+                headposition.x, headposition.y, headposition.z,
+                orientation.w, orientation.x, orientation.y, orientation.z);
 
             // reset timer
             timer = 0.0f;
 
         }
     }
-/*
-    void ShowUserTransformData(UserTransform userTransform)
-    {
-        textDisplay.GetComponent<Text>().text = "Position: " + userTransform.headposition +
-             "Orientation: " + userTransform.orientation;
-    }
-*/
+
 }
