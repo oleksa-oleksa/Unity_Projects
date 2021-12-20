@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 223297225}
   - component: {fileID: 223297224}
   - component: {fileID: 223297223}
+  - component: {fileID: 223297226}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -292,6 +293,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
   selectedConstraints: []
+--- !u!54 &223297226
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223297218}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &320260926
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,8 +491,8 @@ GameObject:
   - component: {fileID: 1170227670}
   - component: {fileID: 1170227669}
   - component: {fileID: 1170227668}
-  - component: {fileID: 1170227672}
   - component: {fileID: 1170227667}
+  - component: {fileID: 1170227672}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -614,11 +631,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1170227665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d749b61b477ca3d42b16f521113ff322, type: 3}
+  m_Script: {fileID: 11500000, guid: 8640e6111e9e9db4f8dfa4db53f11970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headposition: {x: 0, y: 0, z: 0}
-  orientation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1208948432
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +690,8 @@ GameObject:
   - component: {fileID: 1661329781}
   - component: {fileID: 1661329780}
   - component: {fileID: 1661329783}
+  - component: {fileID: 1661329785}
+  - component: {fileID: 1661329784}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -729,8 +746,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 5
+  m_fontSizeBase: 5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -765,7 +782,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -1.7296448, w: 0}
+  m_margin: {x: -8.835955, y: 0, z: -16.264267, w: -2.7884922}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -823,7 +840,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661329779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -848,4 +865,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 0}
   textmeshPro: {fileID: 0}
-  detectedTransform: {fileID: 0}
+  headposition: {x: 0, y: 0, z: 0}
+  orientation: {x: 0, y: 0, z: 0, w: 0}
+  orientationEulerAngles: {x: 0, y: 0, z: 0}
+--- !u!114 &1661329784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661329779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4479a0bd44d822241a4c5f4890c481c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateLinkedTransform: 0
+  moveLerpTime: 0.1
+  rotateLerpTime: 0.1
+  scaleLerpTime: 0
+  maintainScaleOnInitialization: 1
+  smoothing: 1
+  lifetime: 0
+  orientationType: 1
+  faceTrackedObjectWhileClamped: 1
+  faceUserDefinedTargetTransform: 1
+  targetToFace: {fileID: 0}
+  pivotAxis: 7
+  minDistance: 0.8
+  maxDistance: 1.2
+  defaultDistance: 1
+  maxViewHorizontalDegrees: 30
+  maxViewVerticalDegrees: 20
+  reorientWhenOutsideParameters: 1
+  orientToControllerDeadzoneDegrees: 60
+  ignoreAngleClamp: 0
+  ignoreDistanceClamp: 0
+  ignoreReferencePitchAndRoll: 0
+  pitchOffset: 0
+  verticalMaxDistance: 0
+  angularClampMode: 0
+  tetherAngleSteps: 6
+  boundsScaler: 1
+--- !u!114 &1661329785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661329779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b55691ad5b034fe6966763a6e23818d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedTargetType: 0
+  trackedHandness: 3
+  trackedHandJoint: 2
+  transformOverride: {fileID: 0}
+  additionalOffset: {x: 0, y: 0, z: 0}
+  additionalRotation: {x: 0, y: 0, z: 0}
+  updateSolvers: 1

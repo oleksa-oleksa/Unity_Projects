@@ -11,6 +11,7 @@ public class UserInfoText : MonoBehaviour
     // Camera 
     public Vector3 headposition;
     public Quaternion orientation;
+    public Vector3 orientationEulerAngles;
 
     // time variables for delay
     private float waitTime = 1.0f;
@@ -30,18 +31,20 @@ public class UserInfoText : MonoBehaviour
     {
         timer += Time.deltaTime;
         headposition = Camera.main.transform.position;
-        orientation = Camera.main.transform.rotation;
+        //orientation = Camera.main.transform.rotation;
+        orientationEulerAngles = Camera.main.transform.eulerAngles;
 
-        // Check if we have reached beyond 2 seconds.
+
+        // Check if we have reached the time limit
         if (timer > waitTime)
         {
    
             textmeshPro = GetComponent<TextMeshPro>();
 
             textmeshPro.SetText("Position x: {0:3}, y: {1:3}, z: {2:3}; \r\n " +
-                "Rotation w: {3:3}, x: {4:3}, y: {5:3}, z: {6:3}", 
+                "Rotation x: {3:3}, y: {4:3}, z: {5:3}", 
                 headposition.x, headposition.y, headposition.z,
-                orientation.w, orientation.x, orientation.y, orientation.z);
+                orientationEulerAngles.x, orientationEulerAngles.y, orientationEulerAngles.z);
 
             // reset timer
             timer = 0.0f;
