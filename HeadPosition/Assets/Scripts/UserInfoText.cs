@@ -34,6 +34,8 @@ public class UserInfoText : MonoBehaviour
         return Application.persistentDataPath+"Saved_data.csv";
 #elif UNITY_IPHONE
         return Application.persistentDataPath+"/"+"Saved_data.csv";
+#elif WINDOWS_UWP
+        return Application.persistentDataPath  + "/" + "Saved_data.csv";
 #else
         return Application.dataPath + "/" + "Saved_data.csv";
 #endif
