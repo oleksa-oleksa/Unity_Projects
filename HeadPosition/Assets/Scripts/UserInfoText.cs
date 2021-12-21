@@ -23,7 +23,10 @@ public class UserInfoText : MonoBehaviour
     private float waitTime = 1.0f;
     private float timer = 0.0f;
 
+    // for CSV Logger
     private List<string[]> rowData = new List<string[]>();
+    private string filePath = getPath();
+
 
     // Following method is used to retrive the relative path as device platform
     private string getPath()
@@ -37,14 +40,15 @@ public class UserInfoText : MonoBehaviour
 #elif WINDOWS_UWP
         return Application.persistentDataPath  + "/" + "Saved_data.csv";
 #else
-        return Application.dataPath + "/" + "Saved_data.csv";
+        return Application.dataPath + "/" ;
 #endif
     }
 
 
     void Start()
     {
-        Save();
+        OpenCSVFile();
+        //Save();
     }
 
   
@@ -81,6 +85,19 @@ public class UserInfoText : MonoBehaviour
             timer = 0.0f;
 
         }
+    }
+
+
+    void OpenCSVFile() 
+    {
+        //  retriving the relative path as device platform
+        string filePath = getPath() + DateTime.Now.ToString("yyyyMMdd_HHmm");
+
+        //  Creates or opens a file for writing UTF-8 encoded text.
+        //  If the file already exists, its contents are overwritten.
+        //  By using a timestamp in file name it is supposed to creare a new csv file
+        //  for every start of HoloLens Application
+        StreamWriter outStream = System.IO.File.CreateText(filePath);
     }
 
     void Save()
