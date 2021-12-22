@@ -50,18 +50,13 @@ public class UserInfoText : MonoBehaviour
     {
         // prepares app state on start
         
-        
-        // opens CVS using specific for OS path
-        // on HoloLens 2 .csv file will be saved on "User Folders\LocalAppData\<AppName>\LocalState\CSV\"
-        // saved files can be obrained via Windows Device Portal after HoloLens was connected to a WiFi (Windows Docs!)
-        OpenCSVFile();
 
         WriteHeaderToCSV();
 
 
 
         // original 
-        Save();
+        //Save();
     }
 
   
@@ -115,10 +110,29 @@ public class UserInfoText : MonoBehaviour
 
     void WriteHeaderToCSV()
     {
+
+        //  retriving the relative path as device platform
+        filePath = getPath() + DateTime.Now.ToString("yyyyMMdd_HHmm") + "_saved.csv";
+
+        //  Creates or opens a file for writing UTF-8 encoded text.
+        //  If the file already exists, its contents are overwritten.
+        //  By using a timestamp in file name it is supposed to creare a new csv file
+        //  for every start of HoloLens Application
+        outStream = System.IO.File.CreateText(filePath);
+
         string header = "timestamp,x,y,z,qx,qy,qz,qw";
         outStream.WriteLine(header);
+
+        string tmp = "4535435454354";
+        outStream.WriteLine(tmp);
+
         outStream.Close();
 
+        /*
+        outStream = System.IO.File.CreateText(filePath);
+        string tmp = "4535435454354";
+        outStream.WriteLine(tmp);
+        */
     }
 
     void WriteFrameToCSV(string frameData)
