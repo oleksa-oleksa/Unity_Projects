@@ -25,7 +25,7 @@ public class UserInfoText : MonoBehaviour
 
     // for CSV Logger
     private List<string[]> rowData = new List<string[]>();
-    private string filePath = getPath();
+    private string filePath;
     private StreamWriter outStream;
 
 
@@ -39,7 +39,7 @@ public class UserInfoText : MonoBehaviour
 #elif UNITY_IPHONE
         return Application.persistentDataPath+"/"+"Saved_data.csv";
 #elif WINDOWS_UWP
-        return Application.persistentDataPath  + "/" + "Saved_data.csv";
+        return Application.persistentDataPath  + "/CSV/";
 #else
         return Application.dataPath + "/CSV/";
 #endif
@@ -50,9 +50,7 @@ public class UserInfoText : MonoBehaviour
     {
         // prepares app state on start
         
-        //  mutable string of characters for keeping the values before saving 
-        sb = new StringBuilder();
-
+        
         // opens CVS using specific for OS path
         // on HoloLens 2 .csv file will be saved on "User Folders\LocalAppData\<AppName>\LocalState\CSV\"
         // saved files can be obrained via Windows Device Portal after HoloLens was connected to a WiFi (Windows Docs!)
@@ -119,6 +117,7 @@ public class UserInfoText : MonoBehaviour
     {
         string header = "timestamp,x,y,z,qx,qy,qz,qw";
         outStream.WriteLine(header);
+        outStream.Close();
 
     }
 
