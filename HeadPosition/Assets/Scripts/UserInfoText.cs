@@ -26,7 +26,7 @@ public class UserInfoText : MonoBehaviour
     // for CSV Logger
     private List<string[]> rowData = new List<string[]>();
     private string filePath = getPath();
-    private StringBuilder sb;
+    private StreamWriter outStream;
 
 
     // Following method is used to retrive the relative path as device platform
@@ -58,10 +58,12 @@ public class UserInfoText : MonoBehaviour
         // saved files can be obrained via Windows Device Portal after HoloLens was connected to a WiFi (Windows Docs!)
         OpenCSVFile();
 
-        
-        
+        WriteHeaderToCSV();
+
+
+
         // original 
-        //Save();
+        Save();
     }
 
   
@@ -69,7 +71,7 @@ public class UserInfoText : MonoBehaviour
     {
         timer += Time.deltaTime;
         headposition = Camera.main.transform.position;
-        //orientation = Camera.main.transform.rotation;
+        orientation = Camera.main.transform.rotation;
         orientationEulerAngles = Camera.main.transform.eulerAngles;
         velocity = Camera.main.velocity;
         speed = Math.Sqrt(Math.Pow(velocity[0], 2) + Math.Pow(velocity[1], 2) + Math.Pow(velocity[2], 2));
@@ -104,18 +106,25 @@ public class UserInfoText : MonoBehaviour
     void OpenCSVFile() 
     {
         //  retriving the relative path as device platform
-        string filePath = getPath() + DateTime.Now.ToString("yyyyMMdd_HHmm") + "_saved.csv";
+       filePath = getPath() + DateTime.Now.ToString("yyyyMMdd_HHmm") + "_saved.csv";
 
         //  Creates or opens a file for writing UTF-8 encoded text.
         //  If the file already exists, its contents are overwritten.
         //  By using a timestamp in file name it is supposed to creare a new csv file
         //  for every start of HoloLens Application
-        StreamWriter outStream = System.IO.File.CreateText(filePath);
+        outStream = System.IO.File.CreateText(filePath);
     }
 
+    void WriteHeaderToCSV()
+    {
+        string header = "timestamp,x,y,z,qx,qy,qz,qw";
+        outStream.WriteLine(header);
 
-    void writeFrameToCSV(StringBuilder sb)
-    { 
+    }
+
+    void WriteFrameToCSV(string frameData)
+    {
+        outStream.WriteLine(frameData);
     }
 
 
@@ -133,7 +142,7 @@ public class UserInfoText : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             rowDataTemp = new string[3];
-            rowDataTemp[0] = "Sushanta" + i; // name
+            rowDataTemp[0] = "Alexandra" + i; // name
             rowDataTemp[1] = "" + i; // ID
             rowDataTemp[2] = "$" + UnityEngine.Random.Range(5000, 10000); // Income
             rowData.Add(rowDataTemp);
@@ -160,6 +169,17 @@ public class UserInfoText : MonoBehaviour
         StreamWriter outStream = System.IO.File.CreateText(filePath);
         outStream.WriteLine(sb);
         outStream.Close();
+    }
+
+    public void OnDestroy()
+    {
+        // OnDestroy occurs when a Scene or game ends.
+        // If a Scene is closed and a new Scene is loaded the OnDestroy call will be made.
+        // When built as a standalone application OnDestroy calls are made when Scenes end.
+
+        // Closes the current StreamWriter object and the underlying stream.
+        outStream.Close();
+
     }
 
 }
