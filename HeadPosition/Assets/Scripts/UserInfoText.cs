@@ -123,7 +123,9 @@ public class UserInfoText : MonoBehaviour
         string header = "timestamp,x,y,z,qx,qy,qz,qw";
         outStream.WriteLine(header);
 
-        string tmp = "4535435454354";
+        outStream.Flush();
+
+        string tmp = "newnewnew";
         outStream.WriteLine(tmp);
 
         outStream.Close();
