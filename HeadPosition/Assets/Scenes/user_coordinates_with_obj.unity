@@ -227,9 +227,9 @@ GameObject:
   - component: {fileID: 887930526}
   - component: {fileID: 887930525}
   - component: {fileID: 887930524}
-  - component: {fileID: 887930523}
   - component: {fileID: 887930522}
   - component: {fileID: 887930521}
+  - component: {fileID: 887930523}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 887930520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d77fed8ac7e815b459e8651df3050273, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f4dc142c12d0694b95e0ab357f75cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 0}
@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 1269017797}
   - component: {fileID: 1269017801}
   - component: {fileID: 1269017800}
+  - component: {fileID: 1269017802}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -609,6 +610,18 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!114 &1269017802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269017795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d749b61b477ca3d42b16f521113ff322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1374325575
 GameObject:
   m_ObjectHideFlags: 0
