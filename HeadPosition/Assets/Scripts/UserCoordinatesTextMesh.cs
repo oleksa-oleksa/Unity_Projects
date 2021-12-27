@@ -7,7 +7,7 @@ using System.Text;
 using System.IO;
 
 
-public class UserInfoText : MonoBehaviour
+public class UserCoordinatesTextMesh : MonoBehaviour
 {
     public GameObject textDisplay;
     public TextMeshPro textmeshPro;

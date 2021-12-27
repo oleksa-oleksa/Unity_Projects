@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UserTransform : MonoBehaviour
+public class Camera2CSV : MonoBehaviour
 {
 
     // This script obtains data from Main Camera in the Scene
