@@ -24,7 +24,7 @@ public class UserInfoText : MonoBehaviour
     private float timer = 0.0f;
 
     // for CSV Logger
-    private List<string[]> rowData = new List<string[]>();
+    private List<float[]> rowData = new List<float[]>();
     private string filePath;
     private StreamWriter outStream;
 
@@ -48,9 +48,8 @@ public class UserInfoText : MonoBehaviour
 
     void Start()
     {
-        // prepares app state on start
-        
-
+      
+        OpenCSVFile();
         WriteHeaderToCSV();
 
 
@@ -62,32 +61,40 @@ public class UserInfoText : MonoBehaviour
   
     void Update()
     {
+        
         timer += Time.deltaTime;
+        
         headposition = Camera.main.transform.position;
         orientation = Camera.main.transform.rotation;
         orientationEulerAngles = Camera.main.transform.eulerAngles;
         velocity = Camera.main.velocity;
         speed = Math.Sqrt(Math.Pow(velocity[0], 2) + Math.Pow(velocity[1], 2) + Math.Pow(velocity[2], 2));
 
+        // timestamp,x,y,z,qx,qy,qz,qw - structure for CSV
+        // creates values for CSV
+        float timestamp = Time.time;
+        float x = headposition.x;
+        float y = headposition.y;
+        float z = headposition.z;
+        float qx = orientation.x;
+        float qy = orientation.y;
+        float qz = orientation.z;
+        float qw = orientation.w;
+
 
         // Check if we have reached the time limit
         if (timer > waitTime)
         {
-   
+
+            // save camera data from current frame in CSV file
+            WriteFrameToCSV(timestamp, x, y, z, qx, qy, qz, qw);
+
+            // update text block in hologram 
             textmeshPro = GetComponent<TextMeshPro>();
-
-            /*
-            textmeshPro.SetText("Position x: {0:3}, y: {1:3}, z: {2:3}; \r\n " +
-                "Rotation x: {3:3}, y: {4:3}, z: {5:3} \r\n ", 
-                headposition.x, headposition.y, headposition.z,
-                orientationEulerAngles.x, orientationEulerAngles.y, orientationEulerAngles.z);
-            */
-
             textmeshPro.SetText("Position x: {0:3}, y: {1:3}, z: {2:3}; \r\n " +
                 "Velocity x: {3:3}, y: {4:3}, z: {5:3}; \r\n" +
                 "Speed: {6:3}",
-                headposition.x, headposition.y, headposition.z,
-                velocity[0], velocity[1], velocity[2], (float)speed);
+               x, y, z, velocity[0], velocity[1], velocity[2], (float)speed);
 
             // reset timer
             timer = 0.0f;
@@ -109,6 +116,38 @@ public class UserInfoText : MonoBehaviour
     }
 
     void WriteHeaderToCSV()
+    {
+
+        outStream.WriteLine("timestamp,x,y,z,qx,qy,qz,qw");
+        outStream.Flush();
+
+    }
+
+   void WriteFrameToCSV(params float[] cameraData)
+    {
+
+        int length = cameraData.Length;
+        float[] rowDataTemp = new float[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            rowDataTemp[i] = cameraData[i];
+        }
+        //rowData.Add(rowDataTemp);
+
+        string delimiter = ",";
+        StringBuilder sb = new StringBuilder();
+
+        //for (int index = 0; index < length; index++)
+        //    sb.Append(string.Join(delimiter, rowDataTemp[index]));
+
+        string data = string.Join(delimiter, rowDataTemp);
+        outStream.WriteLine(data);
+        outStream.Flush();
+    }
+
+
+    void WriteHeaderToCSV_OLD()
     {
 
         //  retriving the relative path as device platform
@@ -137,12 +176,18 @@ public class UserInfoText : MonoBehaviour
         */
     }
 
-    void WriteFrameToCSV(string frameData)
+    public void OnDestroy()
     {
-        outStream.WriteLine(frameData);
+        // OnDestroy occurs when a Scene or game ends.
+        // If a Scene is closed and a new Scene is loaded the OnDestroy call will be made.
+        // When built as a standalone application OnDestroy calls are made when Scenes end.
+
+        // Closes the current StreamWriter object and the underlying stream.
+        outStream.Close();
+
     }
 
-
+    /*
     void Save()
     {
 
@@ -186,15 +231,5 @@ public class UserInfoText : MonoBehaviour
         outStream.Close();
     }
 
-    public void OnDestroy()
-    {
-        // OnDestroy occurs when a Scene or game ends.
-        // If a Scene is closed and a new Scene is loaded the OnDestroy call will be made.
-        // When built as a standalone application OnDestroy calls are made when Scenes end.
-
-        // Closes the current StreamWriter object and the underlying stream.
-        outStream.Close();
-
-    }
-
+    */
 }
