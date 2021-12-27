@@ -141,7 +141,7 @@ public class UserInfoText : MonoBehaviour
         //for (int index = 0; index < length; index++)
         //    sb.Append(string.Join(delimiter, rowDataTemp[index]));
 
-        string data = string.Join(delimiter, rowDataTemp);
+        string data = string.Join(delimiter, cameraData);
         outStream.WriteLine(data);
         outStream.Flush();
     }
