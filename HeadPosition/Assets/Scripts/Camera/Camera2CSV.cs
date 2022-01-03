@@ -98,7 +98,7 @@ public class Camera2CSV : MonoBehaviour
     void WriteFrameToCSV(params float[] cameraData)
     {
 
-        string delimiter = ", "; // comma with space after 
+        string delimiter = ",";
         string data = string.Join(delimiter, cameraData);
 
         outStream.WriteLine(data);

@@ -56,7 +56,6 @@ public class UserCoordinatesTextMesh : MonoBehaviour
         // Check if we have reached the time limit
         if (timer > waitTime)
         {
-
             // update text block in hologram 
             textmeshPro = GetComponent<TextMeshPro>();
             textmeshPro.SetText("Position x: {0:3}, y: {1:3}, z: {2:3}; \r\n " +
