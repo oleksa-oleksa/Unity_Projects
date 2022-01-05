@@ -4,6 +4,11 @@
 Temp/
 Obj/
 gltf/
+*.bin
+*.jpg
+*.gltf
+*.obj
+**/node_modules
 **/OBJImport/
 UnityGenerated/
 Library/
