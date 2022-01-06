@@ -8,7 +8,9 @@ gltf/
 *.jpg
 *.gltf
 *.obj
+.vsconfig
 **/node_modules
+**/UnityGLTF
 **/OBJImport/
 UnityGenerated/
 Library/
