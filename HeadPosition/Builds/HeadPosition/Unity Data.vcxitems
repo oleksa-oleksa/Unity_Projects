@@ -185,11 +185,27 @@
       <DeploymentContent>true</DeploymentContent>
       <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)UnityOpenXR.dll" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\UnityOpenXR.dll')">
+    <None Include="$(MSBuildThisFileDirectory)lib_burst_generated.dll" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\lib_burst_generated.dll')">
       <DeploymentContent>true</DeploymentContent>
       <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)UnityOpenXR.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\UnityOpenXR.pdb')">
+    <None Include="$(MSBuildThisFileDirectory)lib_burst_generated.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\lib_burst_generated.pdb')">
+      <DeploymentContent>true</DeploymentContent>
+      <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dracodec_unity.dll" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\dracodec_unity.dll')">
+      <DeploymentContent>true</DeploymentContent>
+      <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)dracodec_unity.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\dracodec_unity.pdb')">
+      <DeploymentContent>true</DeploymentContent>
+      <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)ktx_unity.dll" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\ktx_unity.dll')">
+      <DeploymentContent>true</DeploymentContent>
+      <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)ktx_unity.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\ktx_unity.pdb')">
       <DeploymentContent>true</DeploymentContent>
       <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
     </None>
@@ -206,6 +222,14 @@
       <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
     </None>
     <None Include="$(MSBuildThisFileDirectory)MicrosoftOpenXRPlugin.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\MicrosoftOpenXRPlugin.pdb')">
+      <DeploymentContent>true</DeploymentContent>
+      <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)UnityOpenXR.dll" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\UnityOpenXR.dll')">
+      <DeploymentContent>true</DeploymentContent>
+      <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)UnityOpenXR.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\UnityOpenXR.pdb')">
       <DeploymentContent>true</DeploymentContent>
       <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
     </None>
@@ -241,14 +265,23 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <Target Name="BeforeResolveReferences" Condition="'$(BuildingProject)' == 'true'">
-        <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\UnityOpenXR.dll" DestinationFiles="$(MSBuildThisFileDirectory)UnityOpenXR.dll" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\UnityOpenXR.dll')" />
-        <Delete Files="$(MSBuildThisFileDirectory)UnityOpenXR.pdb" Condition="Exists('$(MSBuildThisFileDirectory)UnityOpenXR.pdb')" />
-        <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\UnityOpenXR.pdb" DestinationFiles="$(MSBuildThisFileDirectory)UnityOpenXR.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\UnityOpenXR.pdb')" />
+        <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\lib_burst_generated.dll" DestinationFiles="$(MSBuildThisFileDirectory)lib_burst_generated.dll" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\lib_burst_generated.dll')" />
+        <Delete Files="$(MSBuildThisFileDirectory)lib_burst_generated.pdb" Condition="Exists('$(MSBuildThisFileDirectory)lib_burst_generated.pdb')" />
+        <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\lib_burst_generated.pdb" DestinationFiles="$(MSBuildThisFileDirectory)lib_burst_generated.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\lib_burst_generated.pdb')" />
+        <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\dracodec_unity.dll" DestinationFiles="$(MSBuildThisFileDirectory)dracodec_unity.dll" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\dracodec_unity.dll')" />
+        <Delete Files="$(MSBuildThisFileDirectory)dracodec_unity.pdb" Condition="Exists('$(MSBuildThisFileDirectory)dracodec_unity.pdb')" />
+        <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\dracodec_unity.pdb" DestinationFiles="$(MSBuildThisFileDirectory)dracodec_unity.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\dracodec_unity.pdb')" />
+        <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\ktx_unity.dll" DestinationFiles="$(MSBuildThisFileDirectory)ktx_unity.dll" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\ktx_unity.dll')" />
+        <Delete Files="$(MSBuildThisFileDirectory)ktx_unity.pdb" Condition="Exists('$(MSBuildThisFileDirectory)ktx_unity.pdb')" />
+        <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\ktx_unity.pdb" DestinationFiles="$(MSBuildThisFileDirectory)ktx_unity.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\ktx_unity.pdb')" />
         <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\openxr_loader.dll" DestinationFiles="$(MSBuildThisFileDirectory)openxr_loader.dll" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\openxr_loader.dll')" />
         <Delete Files="$(MSBuildThisFileDirectory)openxr_loader.pdb" Condition="Exists('$(MSBuildThisFileDirectory)openxr_loader.pdb')" />
         <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\openxr_loader.pdb" DestinationFiles="$(MSBuildThisFileDirectory)openxr_loader.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\openxr_loader.pdb')" />
         <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\MicrosoftOpenXRPlugin.dll" DestinationFiles="$(MSBuildThisFileDirectory)MicrosoftOpenXRPlugin.dll" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\MicrosoftOpenXRPlugin.dll')" />
         <Delete Files="$(MSBuildThisFileDirectory)MicrosoftOpenXRPlugin.pdb" Condition="Exists('$(MSBuildThisFileDirectory)MicrosoftOpenXRPlugin.pdb')" />
         <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\MicrosoftOpenXRPlugin.pdb" DestinationFiles="$(MSBuildThisFileDirectory)MicrosoftOpenXRPlugin.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\MicrosoftOpenXRPlugin.pdb')" />
+        <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\UnityOpenXR.dll" DestinationFiles="$(MSBuildThisFileDirectory)UnityOpenXR.dll" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\UnityOpenXR.dll')" />
+        <Delete Files="$(MSBuildThisFileDirectory)UnityOpenXR.pdb" Condition="Exists('$(MSBuildThisFileDirectory)UnityOpenXR.pdb')" />
+        <Copy SourceFiles="$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\UnityOpenXR.pdb" DestinationFiles="$(MSBuildThisFileDirectory)UnityOpenXR.pdb" Condition="Exists('$(MSBuildThisFileDirectory)Plugins\$(PlatformShortName)\UnityOpenXR.pdb')" />
   </Target>
 </Project>

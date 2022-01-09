@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class animate_nodes : MonoBehaviour
 {
-    public GameObject animation;
-    public int targetFramesPerSecond = 120;
-    
+    public GameObject animationObject;
+    private float secondsPerFrame = 1f/30;
+
+    private int currentFrame = 0;
+    private float timeAccumulator;
+
     protected GameObject getFrame(int n)
     {
-        return animation.transform.GetChild(n).gameObject;
+        return animationObject.transform.GetChild(n).gameObject;
     }
 
     protected int getFrameCount()
     { 
-        return animation.transform.childCount;
+        return animationObject.transform.childCount;
     }
-
-    private void Awake()
+    
+    void Start()
     {
-        animation = GameObject.Find("Animation");
+        animationObject = GameObject.Find("Animation");
+        timeAccumulator = 0;
 
         for (int i = 0; i < getFrameCount(); i++)
         {
@@ -27,51 +31,24 @@ public class animate_nodes : MonoBehaviour
         }
     }
 
-    private IEnumerator Start()
-    {
-        var currentIndex = 0;
-        getFrame(currentIndex).SetActive(true);
-
-        while (true)
-        {
-            yield return new WaitForEndOfFrame();
-            getFrame(currentIndex).SetActive(false);
-            currentIndex = (currentIndex + 1) % getFrameCount();
-            getFrame(currentIndex).SetActive(true);
-        }
-        /*
-         * var currentIndex = 0;
-
-        getFrame(currentIndex).SetActive(true);
-        int frameCount = getFrameCount();
-
-        while (true)
-        {
-            yield return new WaitForSeconds(1f / targetFramesPerSecond);
-            getFrame(currentIndex).SetActive(false);
-            currentIndex = (currentIndex + 1) % frameCount;
-            getFrame(currentIndex).SetActive(true);
-        }
-        */
-    }
-
-/*    // Start is called before the first frame update
-    void Start()
-    {
-        animation = GameObject.Find("Animation");
-
-        for (int i = 0; i < getFrameCount(); i++)
-        {
-            getFrame(i).SetActive(false);
-        }
-
-        activeFrame = 0;
-    }
-
     // Update is called once per frame
     void Update()
     {
-        
+
+        timeAccumulator += Time.deltaTime;
+
+        if (timeAccumulator > secondsPerFrame)
+        {
+            getFrame(currentFrame).SetActive(false);
+            currentFrame = (currentFrame + Mathf.RoundToInt(timeAccumulator / secondsPerFrame)) % getFrameCount();
+            getFrame(currentFrame).SetActive(true);
+            timeAccumulator = 0.0f;
+        }
+        /*
+        getFrame(currentFrame).SetActive(false);
+        currentFrame = (currentFrame+1)% getFrameCount();
+        getFrame(currentFrame).SetActive(false);
+        */
     }
-*/
+
 }

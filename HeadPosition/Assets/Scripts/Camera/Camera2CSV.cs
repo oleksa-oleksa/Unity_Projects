@@ -25,6 +25,7 @@ public class Camera2CSV : MonoBehaviour
     private string getPath()
     {
 #if UNITY_EDITOR
+        Directory.CreateDirectory(Application.dataPath + "/CSV");
         return Application.dataPath +"/CSV/"+"Saved_data.csv";
 #elif UNITY_ANDROID
         return Application.persistentDataPath+"Saved_data.csv";
