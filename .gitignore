@@ -8,6 +8,7 @@ gltf/
 *.jpg
 *.gltf
 *.obj
+**/CSV
 .vsconfig
 **/node_modules
 **/UnityGLTF
