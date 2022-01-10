@@ -5,7 +5,7 @@ using UnityEngine;
 public class animate_nodes : MonoBehaviour
 {
     public GameObject animationObject;
-    private float secondsPerFrame = 1f/25;
+    private float secondsPerFrame = 0.04f;
 
     private int currentFrame = 0;
     private float timeAccumulator;

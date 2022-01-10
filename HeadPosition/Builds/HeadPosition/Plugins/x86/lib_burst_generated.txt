@@ -149,7 +149,6 @@ Library: lib_burst_generated
 --root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
 --root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\glTFast.dll
---root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\Unity.FilmInternalUtilities.dll
 --root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.Services.CameraSystem.dll
 --root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\glTFast.Export.dll
@@ -518,7 +517,6 @@ Library: lib_burst_generated
 --root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
 --root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\glTFast.dll
---root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\Unity.FilmInternalUtilities.dll
 --root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\Microsoft.MixedReality.Toolkit.Services.CameraSystem.dll
 --root-assembly=C:\Unity_Projects\HeadPosition\Temp\StagingArea\Data\Managed\glTFast.Export.dll

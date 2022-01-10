@@ -69,9 +69,12 @@ public class Camera2CSV : MonoBehaviour
         float qy = orientation.y;
         float qz = orientation.z;
         float qw = orientation.w;
+        float velocity_x = velocity.x;
+        float velocity_y = velocity.y;
+        float velocity_z = velocity.z;
 
         // save camera data from current frame in CSV file
-        WriteFrameToCSV(timestamp, x, y, z, qx, qy, qz, qw);
+        WriteFrameToCSV(timestamp, x, y, z, qx, qy, qz, qw, velocity_x, velocity_y, velocity_z, (float)speed);
    
     }
 
@@ -91,7 +94,7 @@ public class Camera2CSV : MonoBehaviour
     void WriteHeaderToCSV()
     {
 
-        outStream.WriteLine("timestamp,x,y,z,qx,qy,qz,qw");
+        outStream.WriteLine("timestamp,x,y,z,qx,qy,qz,qw,velocity_x,velocity_y,velocity_z,speed");
         outStream.Flush();
 
     }

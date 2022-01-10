@@ -25,10 +25,6 @@
       <DeploymentContent>true</DeploymentContent>
       <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)StreamingImageSequence.dll">
-      <DeploymentContent>true</DeploymentContent>
-      <ExcludeFromResourceIndex>true</ExcludeFromResourceIndex>
-    </None>
     <ClCompile Include="$(MSBuildThisFileDirectory)UnityGenerated.cpp">
     </ClCompile>
     <ClInclude Include="$(MSBuildThisFileDirectory)UnityGenerated.h">

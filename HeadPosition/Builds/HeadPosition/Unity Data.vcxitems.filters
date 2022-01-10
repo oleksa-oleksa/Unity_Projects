@@ -2,59 +2,58 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Data">
-      <UniqueIdentifier>{d29395de-1202-4e11-9460-120fa3a399c6}</UniqueIdentifier>
+      <UniqueIdentifier>{f88e6cf9-16ec-415e-99e5-a0d3a7924d1d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\il2cpp_data\etc\mono">
-      <UniqueIdentifier>{510b32bb-49e3-490d-833b-a0f5299eeee3}</UniqueIdentifier>
+      <UniqueIdentifier>{f2b153e6-6bbe-4ee8-90ea-57111c392d19}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\il2cpp_data\etc\mono\2.0">
-      <UniqueIdentifier>{a74927a5-d2b7-4565-a92b-883e2848d9af}</UniqueIdentifier>
+      <UniqueIdentifier>{e5f57371-1d4a-4f16-8372-f5f5e6377e7b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\il2cpp_data\etc\mono\2.0\Browsers">
-      <UniqueIdentifier>{2ee9a246-29a5-43f9-9db3-c39941c4517c}</UniqueIdentifier>
+      <UniqueIdentifier>{b3444fc4-6e19-44d9-8216-1d165de188d7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\il2cpp_data\etc\mono\4.0">
-      <UniqueIdentifier>{ce7ff189-93a3-41c7-8dcc-7c5cc61f0b95}</UniqueIdentifier>
+      <UniqueIdentifier>{407aed50-25c5-4ebf-be73-32189a1237b7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\il2cpp_data\etc\mono\4.0\Browsers">
-      <UniqueIdentifier>{42be98e1-f4cf-47c6-a84a-4d74a7b3f5d0}</UniqueIdentifier>
+      <UniqueIdentifier>{1a2cfc7f-87a9-4bed-a897-5e7cd97a2b2d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\il2cpp_data\etc\mono\4.5">
-      <UniqueIdentifier>{01c7b2ef-8ac0-42c8-82a8-633b304652b2}</UniqueIdentifier>
+      <UniqueIdentifier>{942bf235-dad7-44b9-8465-0ae98d58960b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\il2cpp_data\etc\mono\4.5\Browsers">
-      <UniqueIdentifier>{214bce2f-3c95-4465-be77-9856ab98193f}</UniqueIdentifier>
+      <UniqueIdentifier>{6d462aec-1741-488d-88d2-4e048bcc8976}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\il2cpp_data\etc\mono\mconfig">
-      <UniqueIdentifier>{eea0effe-faef-4c58-81fc-5c2899051c0f}</UniqueIdentifier>
+      <UniqueIdentifier>{890d5a5f-84bd-438a-b088-b1f405c40fdd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\il2cpp_data\Metadata">
-      <UniqueIdentifier>{dbfb7dc2-1f98-48c4-b578-483260ceb678}</UniqueIdentifier>
+      <UniqueIdentifier>{ee6ad5e4-c716-4d82-8033-01e21329f12a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\il2cpp_data\Resources">
-      <UniqueIdentifier>{be07255e-ae36-4cec-9efc-3ea4054c0b2f}</UniqueIdentifier>
+      <UniqueIdentifier>{135a61aa-000e-4622-a31b-0fb9fe4e4cd3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\Resources">
-      <UniqueIdentifier>{9ab956a4-998e-4854-8e83-04bf716cff74}</UniqueIdentifier>
+      <UniqueIdentifier>{4b77a46b-06ad-4a5e-ac42-185dfbf9b8e9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\UnitySubsystems\MicrosoftOpenXRPlugin">
-      <UniqueIdentifier>{c6915c2c-e295-4e6e-aad3-1d03ca09e844}</UniqueIdentifier>
+      <UniqueIdentifier>{c317d517-cd20-4435-961e-669fae0271ab}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\UnitySubsystems\UnityOpenXR">
-      <UniqueIdentifier>{614e79bc-4508-4393-a3eb-86926a13b77b}</UniqueIdentifier>
+      <UniqueIdentifier>{70513659-9c48-4c85-928b-cfb4aa781c7c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\il2cpp_data\etc">
-      <UniqueIdentifier>{2d7423bd-1988-4220-8851-c77a488b39ce}</UniqueIdentifier>
+      <UniqueIdentifier>{ccaf78e7-45e3-4f88-acc1-e1e8c51308cf}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\il2cpp_data">
-      <UniqueIdentifier>{77d4b72d-5635-4111-a34e-8f113600f4b9}</UniqueIdentifier>
+      <UniqueIdentifier>{5ebddcbb-7208-4b0d-ba90-c85469a87610}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\UnitySubsystems">
-      <UniqueIdentifier>{a3b66c29-0de0-462a-9f03-031e9d3d6e2f}</UniqueIdentifier>
+      <UniqueIdentifier>{8948d837-978f-4873-a927-9c406a382eee}</UniqueIdentifier>
     </Filter>
     <Resource Include="$(MSBuildThisFileDirectory)Resource.res" />
     <None Include="$(MSBuildThisFileDirectory)StoreManifest.xml" />
-    <None Include="$(MSBuildThisFileDirectory)StreamingImageSequence.dll" />
     <ClCompile Include="$(MSBuildThisFileDirectory)UnityGenerated.cpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)UnityGenerated.h" />
     <None Include="$(MSBuildThisFileDirectory)Data\boot.config">
@@ -172,16 +171,14 @@
       <Filter>Data\UnitySubsystems\UnityOpenXR</Filter>
     </None>
     <None Include="$(MSBuildThisFileDirectory)lib_burst_generated.dll" />
-    <None Include="$(MSBuildThisFileDirectory)lib_burst_generated.pdb" />
     <None Include="$(MSBuildThisFileDirectory)dracodec_unity.dll" />
-    <None Include="$(MSBuildThisFileDirectory)dracodec_unity.pdb" />
     <None Include="$(MSBuildThisFileDirectory)ktx_unity.dll" />
-    <None Include="$(MSBuildThisFileDirectory)ktx_unity.pdb" />
-    <None Include="$(MSBuildThisFileDirectory)openxr_loader.dll" />
-    <None Include="$(MSBuildThisFileDirectory)openxr_loader.pdb" />
-    <None Include="$(MSBuildThisFileDirectory)MicrosoftOpenXRPlugin.dll" />
-    <None Include="$(MSBuildThisFileDirectory)MicrosoftOpenXRPlugin.pdb" />
-    <None Include="$(MSBuildThisFileDirectory)UnityOpenXR.dll" />
-    <None Include="$(MSBuildThisFileDirectory)UnityOpenXR.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)StreamingImageSequence.dll" />
+    <None Include="$(OutDir)GameAssembly.dll" />
+    <None Include="$(OutDir)GameAssembly.pdb" />
+    <None Include="$(UnityWSAPlayerDir)Players\UAP\il2cpp\$(PlatformTarget)\$(UnityPlayerConfiguration)\baselib.dll" />
+    <None Include="$(UnityWSAPlayerDir)Players\UAP\il2cpp\$(PlatformTarget)\$(UnityPlayerConfiguration)\baselib_UAP_$(PlatformTarget)_$(Configuration)_il2cpp.pdb" />
   </ItemGroup>
 </Project>
