@@ -5,6 +5,7 @@ Temp/
 Obj/
 gltf/
 *.bin
+**/mitch
 *.jpg
 *.gltf
 *.obj
