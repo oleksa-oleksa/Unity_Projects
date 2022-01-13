@@ -8,6 +8,7 @@ gltf/
 *.jpg
 *.gltf
 *.obj
+**/3d
 **/CSV
 .vsconfig
 **/node_modules
