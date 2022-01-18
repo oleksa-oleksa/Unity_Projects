@@ -28,13 +28,15 @@ public class timestamp_formats : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        float timestamp1 = Time.time;
+        float timestamp = Time.time;
+        float timestamp_ms = Time.time * 1000.0f;
+        int timestamp_dt = DateTime.UtcNow.Millisecond;
 
         if (timer > waitTime)
         {
             // update text block in hologram 
             textmeshPro = GetComponent<TextMeshPro>();
-            textmeshPro.SetText("Time.time: {0:3}", timestamp1);
+            textmeshPro.SetText("Time.time: {0:17}, Time.time ms: {1:17}, TimeDate: {2}", timestamp, timestamp_ms, timestamp_dt);
 
             // reset timer
             timer = 0.0f;
