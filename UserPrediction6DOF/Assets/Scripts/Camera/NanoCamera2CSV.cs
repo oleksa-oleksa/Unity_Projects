@@ -49,11 +49,13 @@ public class NanoCamera2CSV : MonoBehaviour
         // Invokes the method GetFastLogwith a delay and then repeatedly every repeatRate seconds.
         // Logging ill be started with a delay for 5 seconds and be repeated every 100ns
 
-        InvokeRepeating("GetFastLog", 5.0f, 0.0000001f);
+        //InvokeRepeating("WriteCSVLogNano", 5.0f, 0.0000001f);
+        InvokeRepeating("WriteCSVLogNano", 5.0f, 1e-3f);
+
 
     }
 
-    void GetFastLog()
+    void WriteCSVLogNano()
     {
 
         headposition = Camera.main.transform.position;
@@ -64,10 +66,14 @@ public class NanoCamera2CSV : MonoBehaviour
         velocity = Camera.main.velocity;
         speed = Math.Sqrt(Math.Pow(velocity[0], 2) + Math.Pow(velocity[1], 2) + Math.Pow(velocity[2], 2));
 
-        // timestamp,x,y,z,qx,qy,qz,qw - structure for CSV
-        // creates values for CSV
+
+        // create values for CSV
+
         //float timestamp = Time.time * 1000;
-        float timestamp = ElapsedNanoseconds
+
+        // Gets conversion ratio from Profiler timestamp to nanoseconds.
+        long timestamp = ProfilerUnsafeUtility.Timestamp * ProfilerUnsafeUtility.TimestampToNanosecondsConversionRatio.Numerator / ProfilerUnsafeUtility.TimestampToNanosecondsConversionRatio.Denominator;
+
         float x = headposition.x;
         float y = headposition.y;
         float z = headposition.z;
