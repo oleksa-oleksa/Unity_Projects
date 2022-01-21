@@ -50,7 +50,7 @@ public class NanoCamera2CSV : MonoBehaviour
         // Logging ill be started with a delay for 5 seconds and be repeated every 100ns
 
         //InvokeRepeating("WriteCSVLogNano", 5.0f, 0.0000001f);
-        InvokeRepeating("WriteCSVLogNano", 5.0f, 1e-3f);
+        InvokeRepeating("WriteCSVLogNano", 5.0f, 1e-7f);
 
 
     }
