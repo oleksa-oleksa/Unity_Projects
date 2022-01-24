@@ -61,7 +61,7 @@ public class Camera2CSV : MonoBehaviour
 
         // timestamp,x,y,z,qx,qy,qz,qw - structure for CSV
         // creates values for CSV
-        float timestamp = Time.time * 1000;
+        float timestamp = Time.time;
         float x = headposition.x;
         float y = headposition.y;
         float z = headposition.z;

@@ -47,10 +47,10 @@ public class NanoCamera2CSV : MonoBehaviour
         WriteHeaderToCSV();
 
         // Invokes the method GetFastLogwith a delay and then repeatedly every repeatRate seconds.
-        // Logging ill be started with a delay for 5 seconds and be repeated every 100ns
+        // Logging ill be started with a delay for 5 seconds and be repeated every 1ms
 
         //InvokeRepeating("WriteCSVLogNano", 5.0f, 0.0000001f);
-        InvokeRepeating("WriteCSVLogNano", 5.0f, 1e-7f);
+        InvokeRepeating("WriteCSVLogNano", 5.0f, 1e-3f);
 
 
     }
